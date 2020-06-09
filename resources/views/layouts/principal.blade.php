@@ -35,6 +35,11 @@ Coded by www.creative-tim.com
 </head>
 
 <body class="">
+	<div class="loader text-center bg-primary">
+		<div class="lds-roller">
+			<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+		</div>
+	</div>
 	<div class="wrapper ">
 		<div class="sidebar" data-color="white" data-active-color="danger">
 			<div class="logo">
@@ -45,9 +50,9 @@ Coded by www.creative-tim.com
 			    </a>
 			    <a href="{{route('home')}}" class="simple-text logo-normal">
 			    	{{-- Your Logo --}}
-					<div class="logo-image-big">
-			            <img src="{{ asset('/img/heyjobs.jpg') }}">
-			        </div>
+			    	<div class="logo-image-big">
+			    		<img src="{{ asset('/img/heyjobs.jpg') }}">
+			    	</div>
 			    </a>
 			</div>
 			<div class="sidebar-wrapper">
@@ -98,7 +103,7 @@ Coded by www.creative-tim.com
 						</form>
 						<ul class="navbar-nav">
 							<li class="nav-item btn-rotate dropdown">
-								<a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<i class="nc-icon nc-bell-55"></i>
 									<p>
 										<span class="d-lg-none d-md-block">Some Actions</span>
@@ -109,6 +114,14 @@ Coded by www.creative-tim.com
 									<a class="dropdown-item" href="#">Another action</a>
 									<a class="dropdown-item" href="#">Something else here</a>
 								</div>
+							</li>
+							<li class="nav-item btn-rotate">
+								<form action="@if(auth()->user() ?? false) {{route('logout')}} @endif" method="post">
+									@csrf
+									<button type="submit" class="dropdown-item nav-link text-danger">
+										<i class="nc-icon nc-button-power"></i> Salir
+									</button>
+								</form>
 							</li>
 						</ul>
 					</div>
@@ -148,15 +161,23 @@ Coded by www.creative-tim.com
 	<script src="{{ asset('/js/popper.min.js') }}"></script>
 	<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
 	<script src="{{ asset('/js/perfect-scrollbar.jquery.min.js') }}"></script>
-	<!--  Google Maps Plugin    -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 	<!-- Chart JS -->
 	{{-- <script src="{{ asset('/js/plugins/chartjs.min.js') }}"></script> --}}
 	<!--  Notifications Plugin    -->
 	<script src="{{ asset('/js/bootstrap-notify.js') }}"></script>
 	<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 	<script src="{{ asset('/js/paper-dashboard.min.js?v=2.0.1') }}" type="text/javascript"></script>
-    @stack('scripts')
+	<script>
+		$(function(){});
+		window.addEventListener('load', function() {
+			$('.loader').addClass('hide');
+			setTimeout(function() {
+				$('.loader').remove();
+				console.log("aahh");
+			}, 550)
+		});
+	</script>
+	@stack('scripts')
 	
 </body>
 

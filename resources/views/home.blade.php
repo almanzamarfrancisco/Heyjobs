@@ -87,7 +87,6 @@
 							</div>
 						</div>
 						<!-- Post /////-->
-
 						<!--- \\\\\\\Post-->
 						<div class="card gedf-card">
 							<div class="card-header">
@@ -135,8 +134,6 @@
 							</div>
 						</div>
 						<!-- Post /////-->
-
-
 						<!--- \\\\\\\Post-->
 						<div class="card gedf-card">
 							<div class="card-header">
@@ -196,8 +193,6 @@
 							</div>
 						</div>
 						<!-- Post /////-->
-
-
 						<!--- \\\\\\\Post-->
 						<div class="card gedf-card">
 							<div class="card-header">
@@ -248,9 +243,6 @@
 							</div>
 						</div>
 						<!-- Post /////-->
-
-
-
 					</div>
 					<div class="col-md-3">
 						<div class="card gedf-card">
@@ -286,5 +278,4 @@
    </div>
 </div>
 </div>
-<script src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.22&key=AIzaSyDwAvxUAgYNUfE7Je5ROlPprTYW5hxY5C0"></script>
 @endsection
