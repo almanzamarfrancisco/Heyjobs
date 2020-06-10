@@ -17,6 +17,8 @@ class UsersTableSeeder extends Seeder
 		$user = new User;
 		$user->name = 'Administrador';
 		$user->email = 'admin@e-vanhost.net';
+        $user->rfc = 'VECJ880326XXX';
+        $user->payment_method = 'efectivo';
 		$user->password = bcrypt('12341234');
 		$users[] = $user;
 

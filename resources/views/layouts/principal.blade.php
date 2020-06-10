@@ -173,7 +173,6 @@ Coded by www.creative-tim.com
 			$('.loader').addClass('hide');
 			setTimeout(function() {
 				$('.loader').remove();
-				console.log("aahh");
 			}, 550)
 		});
 	</script>
