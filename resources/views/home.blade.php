@@ -41,54 +41,92 @@
 								<div class="card-header">
 									<ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
 										<li class="nav-item">
-											<a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Make
-											a publication</a>
+											<a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">
+												Haz una publicación
+											</a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images" aria-selected="false" href="#images">Images</a>
+											<a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images" aria-selected="false" href="#images">Imagen</a>
 										</li>
 									</ul>
 								</div>
 								<div class="card-body">
-									<div class="tab-content" id="myTabContent">
-										<div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-											<div class="form-group">
-												<label class="sr-only" for="message">post</label>
-												<textarea class="form-control" id="message" rows="3" placeholder="What are you thinking?"></textarea>
-											</div>
+									<form action="{{ route('new_post') }}" method="post">
+										@csrf	
+										<div class="tab-content" id="myTabContent">
+											<div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+												
+													<div class="form-group">
+														<label class="sr-only" for="message">post</label>
+														<input type="text" name="title" class="form-control" placeholder="Elije un título...">
+														<textarea class="form-control" id="message" rows="3" placeholder="¿Qué quieres promocionar?" name="content"></textarea>
+													</div>
 
-										</div>
-										<div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
-											<div class="form-group">
-												<div class="custom-file">
-													<input type="file" class="custom-file-input" id="customFile">
-													<label class="custom-file-label" for="customFile">Upload image</label>
-												</div>
 											</div>
-											<div class="py-4"></div>
+											<div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
+												<div class="form-group">
+													<div class="custom-file">
+														<input type="file" class="custom-file-input" id="customFile">
+														<label class="custom-file-label" for="customFile">Subir imágen</label>
+													</div>
+												</div>
+												<div class="py-4"></div>
+											</div>
 										</div>
-									</div>
-									<div class="btn-toolbar justify-content-between">
-										<div class="btn-group">
-											<button type="submit" class="btn btn-primary">share</button>
+										<div class="btn-toolbar justify-content-between">
+											<div class="btn-group">
+												<button type="submit" class="btn btn-primary">Compartir</button>
+											</div>
+											{{-- <div class="btn-group">
+												<button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													<i class="fa fa-globe"></i>
+												</button>
+												<div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
+													<a class="dropdown-item" href="#"><i class="fa fa-globe"></i> Public</a>
+													<a class="dropdown-item" href="#"><i class="fa fa-users"></i> Friends</a>
+													<a class="dropdown-item" href="#"><i class="fa fa-user"></i> Just me</a>
+												</div>
+											</div> --}}
 										</div>
-										<div class="btn-group">
-											<button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-											aria-expanded="false">
-											<i class="fa fa-globe"></i>
-										</button>
-										<div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
-											<a class="dropdown-item" href="#"><i class="fa fa-globe"></i> Public</a>
-											<a class="dropdown-item" href="#"><i class="fa fa-users"></i> Friends</a>
-											<a class="dropdown-item" href="#"><i class="fa fa-user"></i> Just me</a>
+									</form>
+
+							</div>
+						</div>
+						<!-- Post /////-->
+						
+						@foreach ($posts as $post)
+						<div class="card gedf-card">
+							<div class="card-header">
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="mr-2">
+											<img class="rounded-circle" width="45" src="{{ asset('/img/default-avatar.png') }}" alt="">
+										</div>
+										<div class="ml-2">
+											<div class="h5 m-0"></div>
+											<div class="h7 text-muted">{{$post->user->name}}</div>
 										</div>
 									</div>
 								</div>
 							</div>
+							<div class="card-body">
+								<div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>{{new Carbon\Carbon($post->created_at)}}</div>
+								<span class="card-link" href="#">
+									<h5 class="card-title text-primary">{{ $post->title }}</h5>
+								</span>
+								<p class="card-text">
+									{{ $post->content }}
+								</p>
+							</div>
+							<div class="card-footer">
+								<a href="#0" class="card-link" onclick="like(this)"><i class="fa fa-gittip"></i> Like</a>
+								{{-- <a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a> --}}
+								{{-- <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a> --}}
+							</div>
 						</div>
-						<!-- Post /////-->
+						@endforeach
 						<!--- \\\\\\\Post-->
-						<div class="card gedf-card">
+						{{-- <div class="card gedf-card">
 							<div class="card-header">
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="d-flex justify-content-between align-items-center">
@@ -96,7 +134,7 @@
 											<img class="rounded-circle" width="45" src="https://picsum.photos/50/50" alt="">
 										</div>
 										<div class="ml-2">
-											<div class="h5 m-0">@LeeCross</div>
+											<div class="h5 m-0"></div>
 											<div class="h7 text-muted">Miracles Lee Cross</div>
 										</div>
 									</div>
@@ -132,10 +170,10 @@
 								<a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
 								<a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
 							</div>
-						</div>
+						</div> --}}
 						<!-- Post /////-->
 						<!--- \\\\\\\Post-->
-						<div class="card gedf-card">
+						{{-- <div class="card gedf-card">
 							<div class="card-header">
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="d-flex justify-content-between align-items-center">
@@ -191,10 +229,10 @@
 								<a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
 								<a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
 							</div>
-						</div>
+						</div> --}}
 						<!-- Post /////-->
 						<!--- \\\\\\\Post-->
-						<div class="card gedf-card">
+						{{-- <div class="card gedf-card">
 							<div class="card-header">
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="d-flex justify-content-between align-items-center">
@@ -241,7 +279,7 @@
 								<a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
 								<a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
 							</div>
-						</div>
+						</div> --}}
 						<!-- Post /////-->
 					</div>
 					<div class="col-md-3">
@@ -269,13 +307,21 @@
 				</div>
 			</div>	
 		</div>
-		<div class="card-footer ">
+		{{-- <div class="card-footer ">
 			<hr>
 			<div class="stats">
 			   <i class="fa fa-history"></i> Ver más...
 		   </div>
-	   </div>
+	   </div> --}}
    </div>
 </div>
 </div>
+<script type="text/javascript">
+	function like(element){
+		if(element.style.color === '')
+			element.style.color = '#ef8157';
+		else
+			element.style.color = '';
+	}
+</script>
 @endsection

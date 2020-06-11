@@ -116,7 +116,7 @@ Coded by www.creative-tim.com
 								</div>
 							</li>
 							<li class="nav-item btn-rotate">
-								<form action="@if(auth()->user() ?? false) {{route('logout')}} @endif" method="post">
+								<form action="@if(auth()->user() ?? false) {{auth()->user()->getTable() === 'providers' ? route('logout_providers'):route('logout')}} @endif" method="post">
 									@csrf
 									<button type="submit" class="dropdown-item nav-link text-danger">
 										<i class="nc-icon nc-button-power"></i> Salir

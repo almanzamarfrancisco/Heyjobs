@@ -19,11 +19,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('/login', 'Auth\LoginController@login')->name('login');
+
+Route::get('/test', function(){
+	return view('auth.register');
+})->name('showProvidersLogin');
+
 Route::get('/login_providers', 'Auth\ProvidersLoginController@showLoginForm')->name('showProvidersLogin');
 Route::post('/login_providers', 'Auth\ProvidersLoginController@login')->name('loginProviders');
+Route::post('/logout_providers', 'Auth\ProvidersLoginController@logout')->name('logout_providers');
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
-Route::get('/search', 'HomeController@search')->name('search');
+Route::get('/home', 'UsersController@index')->name('home');
+Route::get('/dashboard', 'UsersController@dashboard')->name('dashboard');
+Route::get('/search', 'UsersController@search')->name('search');
+
+Route::get('/home_providers', 'ProvidersController@index')->name('home_providers');
+Route::get('/dashboard_providers', 'ProvidersController@dashboard')->name('dashboard_providers');
+Route::get('/search_providers', 'ProvidersController@search')->name('search_providers');
+
+Route::post('/new_post', 'PostController@newPost')->name('new_post');

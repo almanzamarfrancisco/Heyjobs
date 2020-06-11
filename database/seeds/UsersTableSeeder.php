@@ -16,11 +16,26 @@ class UsersTableSeeder extends Seeder
         $users = [];
 		$user = new User;
 		$user->name = 'Administrador';
-		$user->email = 'admin@e-vanhost.net';
+		$user->email = 'admin@mail.com';
         $user->rfc = 'VECJ880326XXX';
-        $user->payment_method = 'efectivo';
+        $user->payment_method = 'cash';
 		$user->password = bcrypt('12341234');
 		$users[] = $user;
+        $user = new User;
+
+        $user->name = 'Alejandro Almanza';
+        $user->email = 'almanza.marfrancisco@gmail.com';
+        $user->rfc = 'VECJ880326456';
+        $user->payment_method = 'cash';
+        $user->password = bcrypt('12341234');
+        $users[] = $user;
+
+        $user->name = 'Yara Donis';
+        $user->email = 'Yara.donis.1000@gmail.com';
+        $user->rfc = 'VECJ880326456';
+        $user->payment_method = 'cash';
+        $user->password = bcrypt('12341234');
+        $users[] = $user;
 
 		
 		foreach ($users as $user) {
