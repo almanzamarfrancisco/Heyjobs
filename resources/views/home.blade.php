@@ -34,8 +34,8 @@
 								</ul>
 							</div>
 						</div> --}}
-						<div class="col-md-9 gedf-main">
-
+						<div class="col-md-8 gedf-main">
+							@if(auth()->user()->getTable() === 'providers')
 							<!--- \\\\\\\Post-->
 							<div class="card gedf-card">
 								<div class="card-header">
@@ -90,8 +90,9 @@
 										</div>
 									</form>
 
+								</div>
 							</div>
-						</div>
+							@endif
 						<!-- Post /////-->
 						
 						@foreach ($posts as $post)
@@ -282,25 +283,30 @@
 						</div> --}}
 						<!-- Post /////-->
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-4">
 						<div class="card gedf-card">
 							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
-								<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-								card's content.</p>
-								<a href="#" class="card-link">Card link</a>
-								<a href="#" class="card-link">Another link</a>
+								<h5 class="card-title">Ayúdanos a ayudarte</h5>
+								<h6 class="card-subtitle mb-2 text-muted">¿Cómo ser parte de la comunidad?</h6>
+								<p class="card-text">
+									Permítenos darte algunas recomendaciones para que nuestra comunidad
+									sea siempre la mejor opción para tí.
+								</p>
+								<a href="#0" class="card-link">Preguntas frecuentes</a>
+								<a href="#0" class="card-link">Cláusulas</a>
 							</div>
 						</div>
 						<div class="card gedf-card">
 							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
-								<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-								card's content.</p>
-								<a href="#" class="card-link">Card link</a>
-								<a href="#" class="card-link">Another link</a>
+								<h5 class="card-title">¿No encuentras un proveedor?</h5>
+								<h6 class="card-subtitle mb-2 text-muted">Esta información te puede servir</h6>
+								<p class="card-text">
+									Es probable que en la comunidad aún no se encuentre el proveedor que buscas
+									Dínos qué buscas y te notificaremos por correo con algún posbile nuevo proveedor
+								</p>
+								{{-- <a href="#0" class="card-link">Card link</a> --}}
+								<input type="text" class="form-control">
+								<a href="#0" class="card-link">Enviar</a>
 							</div>
 						</div>
 					</div>

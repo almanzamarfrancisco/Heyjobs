@@ -32,6 +32,7 @@ Coded by www.creative-tim.com
 	<link href="{{ asset('/css/paper-dashboard.css?v=2.0.1') }}" rel="stylesheet" />
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link href="{{ asset('/css/demo.css') }}" rel="stylesheet" />
+	<link href="{{ asset('/css/awesomplete.css') }}" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -91,16 +92,6 @@ Coded by www.creative-tim.com
 						<span class="navbar-toggler-bar navbar-kebab"></span>
 					</button>
 					<div class="collapse navbar-collapse justify-content-end" id="navigation">
-						<form>
-							<div class="input-group no-border">
-								<input type="text" value="" class="form-control" placeholder="Search...">
-								<div class="input-group-append">
-									<div class="input-group-text">
-										<i class="nc-icon nc-zoom-split"></i>
-									</div>
-								</div>
-							</div>
-						</form>
 						<ul class="navbar-nav">
 							<li class="nav-item btn-rotate dropdown">
 								<a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -132,6 +123,23 @@ Coded by www.creative-tim.com
 				<div class="row">
 					<div class="col-md-12">
 						{{-- <h3 class="description">Your content here</h3> --}}
+						@if(auth()->user()->getTable() === 'users')
+						<div class="bg-white p-5 mb-3" style="border-radius: 1.7rem">
+							<h5 style="color: #343a40;font-weight: 300">Busca proveedores ...</h5>
+							<form method="post" action="{{ route('search') }}">
+								@csrf
+								<input type="hidden" name="type" value="{{auth()->user()->getTable()}}}}">
+								<div class="input-group no-border">
+									<input type="text" value="" class="form-control awesomplete" placeholder="Search..." name="search" data-list="Ada, Java, JavaScript, Brainfuck, LOLCODE, Node.js, Ruby on Rails">
+									<div class="input-group-append" autocomplete="false">
+										<div class="input-group-text">
+											<i class="nc-icon nc-zoom-split" style="color: #ef8157"></i>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+						@endif
 						@yield('content')
 					</div>
 				</div>
@@ -167,6 +175,7 @@ Coded by www.creative-tim.com
 	<script src="{{ asset('/js/bootstrap-notify.js') }}"></script>
 	<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 	<script src="{{ asset('/js/paper-dashboard.min.js?v=2.0.1') }}" type="text/javascript"></script>
+	<script src="{{ asset('/js/awesomplete.js') }}" type="text/javascript"></script>
 	<script>
 		$(function(){});
 		window.addEventListener('load', function() {
