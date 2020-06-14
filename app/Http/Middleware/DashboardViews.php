@@ -16,7 +16,8 @@ class DashboardViews
      */
     public function handle($request, Closure $next)
     {
-        $views = View::all();
+        if(auth()->user()->getTable())
+            $views = View::where('user_type', auth()->user()->getTable())->orWhere('user_type', null)->get();
         view()->share('viewsGlobal', $views);
         // if( $views->pluck('route')->contains( Request::segment(1) ) )
             return $next($request);

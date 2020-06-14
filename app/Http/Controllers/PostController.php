@@ -9,15 +9,19 @@ class PostController extends Controller
 {
 
     public function newPost(Request $request){
-    	if(!auth()->user())
-    		return redirect('login');
+    	if(auth('provider')->user())
+            $auth = auth('provider')->user();
+        if(auth()->user())
+            $auth = auth()->user();
+        if(!$auth)
+            return redirect('/home');
     	$request->validate([
     		"content" => "string",
     		"title" => "string" 
     	]);
     	
     	Post::create([
-    		'user_id' => auth()->user()->id,
+    		'provider_id' => $auth->id,
     		'title' => $request->title,
     		'content' => $request->content,
     	]);

@@ -34,6 +34,9 @@ class Provider extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'working_schedule' => 'array'
     ];
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
 }

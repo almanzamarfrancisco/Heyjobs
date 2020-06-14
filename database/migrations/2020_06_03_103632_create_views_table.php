@@ -19,6 +19,7 @@ class CreateViewsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('icon');
+            $table->string('user_type')->nullable();
             // $table->timestamps();
         });
     }

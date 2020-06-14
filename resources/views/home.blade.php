@@ -105,7 +105,7 @@
 										</div>
 										<div class="ml-2">
 											<div class="h5 m-0"></div>
-											<div class="h7 text-muted">{{$post->user->name}}</div>
+											<div class="h7 text-muted">{{$post->provider->name}}</div>
 										</div>
 									</div>
 								</div>

@@ -21,7 +21,7 @@ Auth::routes();
 
 
 Route::get('/test', function(){
-	return view('auth.register');
+	return App\User::with('engagements')->get();
 })->name('showProvidersLogin');
 
 Route::get('/login_providers', 'Auth\ProvidersLoginController@showLoginForm')->name('showProvidersLogin');

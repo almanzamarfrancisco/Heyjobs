@@ -18,6 +18,15 @@ class ViewsTableSeeder extends Seeder
 		$view->name = 'home';
 		$view->slug = 'Inicio';
 		$view->icon = 'nc-bank';
+		$view->user_type = 'users';
+		$views[] = $view;
+
+		$view = new View;
+		$view->route = '/home_providers';
+		$view->name = 'home_providers';
+		$view->slug = 'Inicio';
+		$view->icon = 'nc-bank';
+		$view->user_type = 'providers';
 		$views[] = $view;
 
 		$view = new View;
@@ -25,6 +34,7 @@ class ViewsTableSeeder extends Seeder
 		$view->name = 'search';
 		$view->slug = 'Buscar';
 		$view->icon = 'nc-pin-3';
+		// $view->user_type = 'users';
 		$views[] = $view;
 
 		
