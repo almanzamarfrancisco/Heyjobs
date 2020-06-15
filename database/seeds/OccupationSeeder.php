@@ -51,6 +51,12 @@ class OccupationSeeder extends Seeder
 			$o->slug = 'Mecánico en general';
 			$o->professional = 0;
 			$occupations[] = $o;
+		// motomotive_industry
+			$o = new Occupation;
+			$o->name = 'mechanic_motorcycles';
+			$o->slug = 'Mecánico de motos';
+			$o->professional = 0;
+			$occupations[] = $o;
         // design_and_technology
 			$o = new Occupation;
 			$o->name = 'web_designer';

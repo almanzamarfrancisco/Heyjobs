@@ -39,4 +39,7 @@ class Provider extends Authenticatable
     public function posts(){
         return $this->hasMany(Post::class);
     }
+    public function occupation(){
+        return $this->belongsToMany(Occupation::class, 'provider_occupations');
+    }
 }

@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(WorkSphereSeeder::class);
         $this->call(OccupationSeeder::class);
         $this->call(EstablishmentSeeder::class);
+        $this->call(ProviderOccupationSeeder::class);
     }
 }

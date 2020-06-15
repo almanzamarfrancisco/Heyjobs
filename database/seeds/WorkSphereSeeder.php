@@ -25,6 +25,11 @@ class WorkSphereSeeder extends Seeder
         $ws->slug = 'Autos';
         $workspheres[] = $ws;
 
+        $ws = new WorkSphere;
+        $ws->name = 'motomotive_industry';
+        $ws->slug = 'Motos';
+        $workspheres[] = $ws;
+
 		$ws = new WorkSphere;
         $ws->name = 'design_and_technology';
         $ws->slug = 'Diseño y tecnología';
