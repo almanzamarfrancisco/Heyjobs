@@ -33,6 +33,14 @@ Coded by www.creative-tim.com
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link href="{{ asset('/css/demo.css') }}" rel="stylesheet" />
 	<link href="{{ asset('/css/awesomplete.css') }}" rel="stylesheet" />
+	<style>
+		.awesomplete{
+			width: 80%;
+		}
+		.awesomplete.form-control{
+			width: 100%;	
+		}
+	</style>
 </head>
 
 <body class="">
@@ -126,15 +134,15 @@ Coded by www.creative-tim.com
 						@if(auth()->user()->getTable() === 'users')
 						<div class="bg-white p-5 mb-3" style="border-radius: 1.7rem">
 							<h5 style="color: #343a40;font-weight: 300">Busca proveedores ...</h5>
-							<form method="post" action="{{ route('search') }}">
+							<form method="post" action="{{ route('search_provider') }}" id="searchForm" onsubmit="return searchSubmit();">
 								@csrf
 								<input type="hidden" name="type" value="{{auth()->user()->getTable()}}}}">
 								<div class="input-group no-border">
-									<input type="text" value="" class="form-control awesomplete" placeholder="Search..." name="search" data-list="Ada, Java, JavaScript, Brainfuck, LOLCODE, Node.js, Ruby on Rails">
+									<input type="text" value="" class="form-control awesomplete" placeholder="Busca una ocupación..." name="search_occupation" id="searchOccupationInput" data-list="@foreach ($occupations ?? [] as $occupation) {{$occupation->slug}},  @endforeach">
 									<div class="input-group-append" autocomplete="false">
-										<div class="input-group-text">
-											<i class="nc-icon nc-zoom-split" style="color: #ef8157"></i>
-										</div>
+										<button class="input-group-text" style="min-width: 50px;" type="submit">
+											<i class="nc-icon nc-zoom-split" style="color: #ef8157" id="searchButton"></i>
+										</button>
 									</div>
 								</div>
 							</form>
@@ -164,6 +172,8 @@ Coded by www.creative-tim.com
 			</footer>
 		</div>
 	</div>
+	<span data-notify="message">Espera, <b>Alto!</b> - Por favor ingresa una palabra para buscar proveedores.</span
+		>
 	<!--   Core JS Files   -->
 	<script src="{{ asset('/js/jquery.min.js') }}"></script>
 	<script src="{{ asset('/js/popper.min.js') }}"></script>
@@ -184,7 +194,22 @@ Coded by www.creative-tim.com
 				$('.loader').remove();
 			}, 550)
 		});
+		function searchSubmit(e){
+			console.log(document.getElementById('searchOccupationInput').value === '');
+			if(document.getElementById('searchOccupationInput').value === ''){
+				event.preventDefault();
+				$.notify({
+					title: '<strong>Espera!</strong>',
+					message: 'Por favor ingresa algo qué buscar en la barra de búsqueda.'
+				},{
+					type: 'danger'
+				});
+				return false;
+			}
+		}
+
 	</script>
+	<script src="{{ asset('/js/demo.js') }}"></script>
 	@stack('scripts')
 	
 </body>

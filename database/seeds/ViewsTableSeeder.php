@@ -13,11 +13,20 @@ class ViewsTableSeeder extends Seeder
     {
         View::truncate();
         $views = [];
+
 		$view = new View;
 		$view->route = '/home';
 		$view->name = 'home';
 		$view->slug = 'Inicio';
 		$view->icon = 'nc-bank';
+		$view->user_type = 'users';
+		$views[] = $view;
+
+		$view = new View;
+		$view->route = '/client_engagements';
+		$view->name = 'client_engagements';
+		$view->slug = 'Contrataciones';
+		$view->icon = 'nc-paper';
 		$view->user_type = 'users';
 		$views[] = $view;
 
@@ -31,10 +40,10 @@ class ViewsTableSeeder extends Seeder
 
 		$view = new View;
 		$view->route = '/search';
-		$view->name = 'search';
+		$view->name = 'search_view';
 		$view->slug = 'Buscar';
-		$view->icon = 'nc-pin-3';
-		// $view->user_type = 'users';
+		$view->icon = 'nc-zoom-split';
+		$view->user_type = 'users';
 		$views[] = $view;
 
 		

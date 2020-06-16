@@ -29,8 +29,11 @@ Route::post('/login_providers', 'Auth\ProvidersLoginController@login')->name('lo
 Route::post('/logout_providers', 'Auth\ProvidersLoginController@logout')->name('logout_providers');
 
 Route::get('/home', 'UsersController@index')->name('home');
-Route::get('/dashboard', 'UsersController@dashboard')->name('dashboard');
-Route::get('/search', 'UsersController@search')->name('search');
+Route::get('/search', 'UsersController@search')->name('search_view');
+Route::post('/search', 'UsersController@searchProvider')->name('search_provider');
+Route::get('/client_engagements', 'UsersController@engagements')->name('client_engagements');
+Route::get('/show_provider', 'UsersController@showProvider')->name('show_provider');
+Route::post('/request_contract', 'UsersController@requestContract')->name('request_contract');
 
 Route::get('/home_providers', 'ProvidersController@index')->name('home_providers');
 Route::get('/dashboard_providers', 'ProvidersController@dashboard')->name('dashboard_providers');

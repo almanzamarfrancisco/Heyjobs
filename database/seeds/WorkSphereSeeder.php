@@ -54,10 +54,12 @@ class WorkSphereSeeder extends Seeder
 		$ws = new WorkSphere;
         $ws->name = 'consultancy';
         $ws->slug = 'Consultoría';
+        $workspheres[] = $ws;
 
 		$ws = new WorkSphere;
         $ws->name = 'social_events';
         $ws->slug = 'Eventos sociales';
+        $workspheres[] = $ws;
 
 		$ws = new WorkSphere;
         $ws->name = 'construction_and_maintenance';

@@ -17,6 +17,7 @@ class CreateEngagementsTable extends Migration
             $table->id();
             $table->integer('user_id')->unsigned();
             $table->integer('provider_id')->unsigned();
+            $table->integer('state')->unsigned();
             $table->string('concept');
             $table->string('description');
             $table->string('prepayment');

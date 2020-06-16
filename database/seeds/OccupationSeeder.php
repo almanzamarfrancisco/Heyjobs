@@ -101,13 +101,13 @@ class OccupationSeeder extends Seeder
 			$occupations[] = $o;
 		// health
 			$o = new Occupation;
-			$o->name = 'Chiropractor';
+			$o->name = 'chiropractor';
 			$o->slug = 'Quiropráctic@';
 			$o->professional = 1;
 			$occupations[] = $o;
 
 			$o = new Occupation;
-			$o->name = 'psicólog';
+			$o->name = 'psychologist';
 			$o->slug = 'Psicólog@';
 			$o->professional = 1;
 			$occupations[] = $o;
@@ -161,19 +161,19 @@ class OccupationSeeder extends Seeder
 			$occupations[] = $o;
 			
 			$o = new Occupation;
-			$o->name = 'DJ';
+			$o->name = 'dj';
 			$o->slug = 'DJ';
 			$o->professional = 0;
 			$occupations[] = $o;
 			
 			$o = new Occupation;
-			$o->name = '';
+			$o->name = 'host';
 			$o->slug = 'Anfitrión/Anfirtriona';
 			$o->professional = 0;
 			$occupations[] = $o;
 			
 			$o = new Occupation;
-			$o->name = 'host';
+			$o->name = 'decorator';
 			$o->slug = 'Decorador/Decoradora';
 			$o->professional = 0;
 			$occupations[] = $o;

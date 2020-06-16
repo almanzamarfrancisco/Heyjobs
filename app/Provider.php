@@ -42,4 +42,8 @@ class Provider extends Authenticatable
     public function occupation(){
         return $this->belongsToMany(Occupation::class, 'provider_occupations');
     }
+    public function engagements()
+    {
+        return $this->belongsToMany(User::class, 'engagements');
+    }
 }

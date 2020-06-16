@@ -37,7 +37,12 @@ class ProviderOccupationSeeder extends Seeder
 		$items[] = $item;
 
         $item = new ProviderOccupation;
-		$item->provider_id = Provider::whereEmail('José.Pacheco10@gmail.com')->first()->id;
+		$item->provider_id = Provider::whereEmail('Jose.Pacheco10@gmail.com')->first()->id;
+		$item->occupation_id = Occupation::whereName('web_developer')->first()->id;
+		$items[] = $item;
+
+        $item = new ProviderOccupation;
+		$item->provider_id = Provider::whereEmail('almanza.marfrancisco@gmail.com')->first()->id;
 		$item->occupation_id = Occupation::whereName('web_developer')->first()->id;
 		$items[] = $item;
 

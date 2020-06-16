@@ -18,39 +18,71 @@ class ProvidersTableSeeder extends Seeder
 		$provider->name = 'Alguien';
 		$provider->email = 'alguien@mail.com';
         $provider->rfc = 'VECJ880326XXX';
-        // $provider->payment_method = 'efectivo';
 		$provider->password = bcrypt('12341234');
+        $provider->working_schedule = json_decode('{"SU":{"start":"-","end":"-","slug":"Domingo"},"MO":{"start":"09:00","end":"18:00","slug":"Lunes"},"TU":{"start":"09:00","end":"18:00","slug":"Martes"},"WE":{"start":"09:00","end":"18:00","slug":"Miércoles"},"TH":{"start":"09:00","end":"18:00","slug":"Jueves"},"FR":{"start":"09:00","end":"18:00","slug":"Viernes"},"SA":{"start":"09:00","end":"18:00","slug":"Sábado"},"Emergency":"Yes"}');
+        $provider->professional = 0;
+        $provider->mobility = 1;
+        $provider->home_service = 0;
+        $provider->intro = 'Hola soy un fotógrafo';
 		$providers[] = $provider;
 
         $provider = new Provider;
         $provider->name = 'Gustavo Motos - Taller de motos';
         $provider->email = 'GustavoMotos@gmail.com';
         $provider->rfc = 'RFCJ880326ABC';
-        // $provider->payment_method = 'efectivo';
         $provider->password = bcrypt('12341234');
+        $provider->working_schedule = json_decode('{"SU":{"start":"-","end":"-","slug":"Domingo"},"MO":{"start":"09:00","end":"18:00","slug":"Lunes"},"TU":{"start":"09:00","end":"18:00","slug":"Martes"},"WE":{"start":"09:00","end":"18:00","slug":"Miércoles"},"TH":{"start":"09:00","end":"18:00","slug":"Jueves"},"FR":{"start":"09:00","end":"18:00","slug":"Viernes"},"SA":{"start":"09:00","end":"18:00","slug":"Sábado"},"Emergency":"Yes"}');
+        $provider->professional = 0;
+        $provider->mobility = 1;
+        $provider->home_service = 0;
+        $provider->intro = 'Hola soy un mecánico de motos';
         $providers[] = $provider;
 
         $provider = new Provider;
         $provider->name = 'Tany - Taller de Motos';
         $provider->email = 'TanyTallerDeMotos@gmail.com';
         $provider->rfc = 'RFCJ880326DEF';
-        // $provider->payment_method = 'efectivo';
         $provider->password = bcrypt('12341234');
+        $provider->working_schedule = json_decode('{"SU":{"start":"-","end":"-","slug":"Domingo"},"MO":{"start":"09:00","end":"18:00","slug":"Lunes"},"TU":{"start":"09:00","end":"18:00","slug":"Martes"},"WE":{"start":"09:00","end":"18:00","slug":"Miércoles"},"TH":{"start":"09:00","end":"18:00","slug":"Jueves"},"FR":{"start":"09:00","end":"18:00","slug":"Viernes"},"SA":{"start":"09:00","end":"18:00","slug":"Sábado"},"Emergency":"Yes"}');
+        $provider->professional = 0;
+        $provider->mobility = 1;
+        $provider->home_service = 0;
+        $provider->intro = 'Hola tengo un taller de motos';
         $providers[] = $provider;
 
         $provider = new Provider;
         $provider->name = 'Estética Rubí';
         $provider->email = 'RubíBelleza@gmail.com';
         $provider->rfc = 'RFCA880326ABC';
-        // $provider->payment_method = 'efectivo';
+        $provider->working_schedule = json_decode('{"SU":{"start":"-","end":"-","slug":"Domingo"},"MO":{"start":"09:00","end":"18:00","slug":"Lunes"},"TU":{"start":"09:00","end":"18:00","slug":"Martes"},"WE":{"start":"09:00","end":"18:00","slug":"Miércoles"},"TH":{"start":"09:00","end":"18:00","slug":"Jueves"},"FR":{"start":"09:00","end":"18:00","slug":"Viernes"},"SA":{"start":"09:00","end":"18:00","slug":"Sábado"},"Emergency":"Yes"}');
+        $provider->professional = 0;
+        $provider->mobility = 1;
+        $provider->home_service = 0;
+        $provider->intro = 'Hola tengo una estética';
         $provider->password = bcrypt('12341234');
         $providers[] = $provider;
 
         $provider = new Provider;
         $provider->name = 'José Pacheco';
-        $provider->email = 'José.Pacheco10@gmail.com';
+        $provider->email = 'Jose.Pacheco10@gmail.com';
         $provider->rfc = 'RFCB880326ABC';
-        // $provider->payment_method = 'efectivo';
+        $provider->working_schedule = json_decode('{"SU":{"start":"-","end":"-","slug":"Domingo"},"MO":{"start":"09:00","end":"18:00","slug":"Lunes"},"TU":{"start":"09:00","end":"18:00","slug":"Martes"},"WE":{"start":"09:00","end":"18:00","slug":"Miércoles"},"TH":{"start":"09:00","end":"18:00","slug":"Jueves"},"FR":{"start":"09:00","end":"18:00","slug":"Viernes"},"SA":{"start":"09:00","end":"18:00","slug":"Sábado"},"Emergency":"Yes"}');
+        $provider->professional = 0;
+        $provider->mobility = 1;
+        $provider->home_service = 0;
+        $provider->intro = 'Hola soy programador web';
+        $provider->password = bcrypt('12341234');
+        $providers[] = $provider;
+
+        $provider = new Provider;
+        $provider->name = 'Alejandro';
+        $provider->email = 'almanza.marfrancisco@gmail.com';
+        $provider->rfc = 'RFCB980326ABC';
+        $provider->working_schedule = json_decode('{"SU":{"start":"-","end":"-","slug":"Domingo"},"MO":{"start":"09:00","end":"18:00","slug":"Lunes"},"TU":{"start":"09:00","end":"18:00","slug":"Martes"},"WE":{"start":"09:00","end":"18:00","slug":"Miércoles"},"TH":{"start":"09:00","end":"18:00","slug":"Jueves"},"FR":{"start":"09:00","end":"18:00","slug":"Viernes"},"SA":{"start":"09:00","end":"18:00","slug":"Sábado"},"Emergency":"Yes"}');
+        $provider->professional = 0;
+        $provider->mobility = 1;
+        $provider->home_service = 0;
+        $provider->intro = 'Hola soy otro programador web';
         $provider->password = bcrypt('12341234');
         $providers[] = $provider;
 

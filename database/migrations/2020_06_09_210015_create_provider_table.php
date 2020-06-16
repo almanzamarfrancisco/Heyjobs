@@ -22,10 +22,11 @@ class CreateProviderTable extends Migration
             $table->string('rfc', 14)->nullable();
             $table->string('password');
             // Occupation Information
-            $table->json('working_schedule')->defalut('{SU:{"start":"00:00", "end": "00:00"},MO:{"start":"00:00", "end": "00:00"},TU:{"start":"00:00", "end": "00:00"},WE:{"start":"00:00", "end": "00:00"},TH:{"start":"00:00", "end": "00:00"},FR:{"start":"00:00", "end": "00:00"},SA:{"start":"00:00", "end": "00:00", "Emergency":"No"}')->nullable();// {SU:{"start":"00:00", "end": "00:00"},MO:...,TU:...,WE:...,TH:...,,FR:..,SA:..}
+            $table->json('working_schedule')->defalut('{"SU":{"start":"-","end":"-","slug":"Domingo"},"MO":{"start":"09:00","end":"18:00","slug":"Lunes"},"TU":{"start":"09:00","end":"18:00","slug":"Martes"},"WE":{"start":"09:00","end":"18:00","slug":"Miércoles"},"TH":{"start":"09:00","end":"18:00","slug":"Jueves"},"FR":{"start":"09:00","end":"18:00","slug":"Viernes"},"SA":{"start":"09:00","end":"18:00","slug":"Sábado"},"Emergency":"Yes"}')->nullable();
             $table->boolean('professional')->nullable();
             $table->boolean('mobility')->nullable();
             $table->boolean('home_service')->nullable();
+            $table->text('intro')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
