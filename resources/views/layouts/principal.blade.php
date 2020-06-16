@@ -68,7 +68,7 @@ Coded by www.creative-tim.com
 				<ul class="nav">
 					@if( isset($viewsGlobal) )
 					@foreach( $viewsGlobal as $view )
-					<li class="{{ request()->is($view->name) === true ? 'active':'' }} ">
+					<li class="{{ request()->url() === route($view->name) ? 'active':'' }} ">
 						<a href="{{ route($view->name) }}">
 							<i class="nc-icon {{$view->icon}}"></i>
 							<p>{{$view->slug}}</p>
