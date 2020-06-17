@@ -51,7 +51,7 @@ class ProvidersTableSeeder extends Seeder
         $providers[] = $provider;
 
         $provider = new Provider;
-        $provider->name = 'Estética Rubí';
+        $provider->name = 'Rubí';
         $provider->email = 'RubíBelleza@gmail.com';
         $provider->rfc = 'RFCA880326ABC';
         $provider->working_schedule = json_decode('{"SU":{"start":"-","end":"-","slug":"Domingo"},"MO":{"start":"09:00","end":"18:00","slug":"Lunes"},"TU":{"start":"09:00","end":"18:00","slug":"Martes"},"WE":{"start":"09:00","end":"18:00","slug":"Miércoles"},"TH":{"start":"09:00","end":"18:00","slug":"Jueves"},"FR":{"start":"09:00","end":"18:00","slug":"Viernes"},"SA":{"start":"09:00","end":"18:00","slug":"Sábado"},"Emergency":"Yes"}');

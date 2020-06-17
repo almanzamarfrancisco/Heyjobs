@@ -39,6 +39,14 @@ class ViewsTableSeeder extends Seeder
 		$views[] = $view;
 
 		$view = new View;
+		$view->route = '/engagements_dashboard';
+		$view->name = 'engagements_dashboard';
+		$view->slug = 'Tablero de contratos';
+		$view->icon = 'nc-paper';
+		$view->user_type = 'providers';
+		$views[] = $view;
+
+		$view = new View;
 		$view->route = '/search';
 		$view->name = 'search_view';
 		$view->slug = 'Buscar';

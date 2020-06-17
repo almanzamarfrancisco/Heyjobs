@@ -38,6 +38,6 @@ class User extends Authenticatable
     ];
 
     public function engagements(){
-        return $this->belognsToMany(Provider::class, 'engagements');
+        return $this->belongsToMany(Provider::class, 'engagements');
     }
 }

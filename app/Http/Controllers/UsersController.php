@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Occupation;
 use App\Provider;
+use App\Engagement;
 
 class UsersController extends Controller
 {
@@ -34,10 +35,15 @@ class UsersController extends Controller
     }
     public function engagements()
     {
-        return view('client_engagement', [/*"posts" => Post::all()->reverse(),*/ "occupations" => Occupation::all()]);
+        // return Engagement::whereUserId(auth()->user()->id)->get();
+        return view('client_engagement', ["engagements" => Engagement::whereUserId(auth()->user()->id)->get(), "occupations" => Occupation::all()]);
     }
     public function searchProvider(Request $request)
     {
+        $request->validate([
+            'search_occupation' => 'string',
+            'type' => 'string',
+        ]);
         return view('search', ["found_providers" => Occupation::with('providers')->whereSlug($request->search_occupation)->get()->pluck('providers')[0], "occupations" => Occupation::all()]);
     }
     public function showProvider(Request $request)
@@ -46,7 +52,20 @@ class UsersController extends Controller
     }
     public function requestContract(Request $request)
     {
-        return $request;
-        return back()->with(["provider" => Provider::find($request->provider_id), "occupations" => Occupation::all()]);
+        $request->validate([
+            'request' => 'string',
+            'provider_id' => 'numeric',
+        ]);
+        $engagement = Engagement::create([
+            'user_id'=> auth()->user()->id,
+            'provider_id'=> $request->provider_id,
+            'state'=> 'requested',
+            'request'=> '',
+            'concept'=> '',
+            'description'=> '',
+        ]);
+        if(!$engagement)
+            return back()->with(["provider" => Provider::find($request->provider_id), "occupations" => Occupation::all()]);
+        return view('contactyousoon');
     }
 }

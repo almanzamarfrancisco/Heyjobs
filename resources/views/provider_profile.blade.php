@@ -107,6 +107,7 @@
 						</div>
 						<form action="{{ route('request_contract') }}" method="post">
 							@csrf
+							<input type="hidden" name="provider_id" value="{{$provider->id}}" >
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">

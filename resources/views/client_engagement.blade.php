@@ -13,30 +13,40 @@
 				<div class="container-fluid gedf-wrapper">
 					<div class="row">
 						<div class="col-md-8 gedf-main">
-							
-						{{-- @foreach ($posts as $post) --}}
+						@foreach ($engagements as $engagement)
+						@if($engagement->state !== 'requested') @continue @endif
 						<div class="card gedf-card">
 							<div class="card-header">
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="d-flex justify-content-between align-items-center">
-										<div class="mr-2">
-											<img class="rounded-circle" width="45" src="{{ asset('/img/default-avatar.png') }}" alt="">
-										</div>
 										<div class="ml-2">
-											<div class="h5 m-0"></div>
-											<div class="h7 text-muted">{{-- {{$post->provider->name}} --}}</div>
+											<div class="h4 text-muted">Proveedor: {{$engagement->provider->name}}</div>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="card-body">
-								<div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>{{-- {{new Carbon\Carbon($post->created_at)}} --}}</div>
-								<span class="card-link" href="#">
-									<h5 class="card-title text-primary">{{-- {{ $post->title }} --}}</h5>
-								</span>
+								<div class="text-muted h7 mb-2">
+									<i class="fa fa-clock-o"></i>
+									Fecha de creación: {{new Carbon\Carbon($engagement->created_at)}}
+								</div>
+								<h6 class="card-title text-primary">Estado</h6>
+								<p>{{ $engagement->state }}</p>
+								<hr>
+								<h6 class="card-title text-primary">Solicitud</h6>
+								<p>{{ $engagement->request }}</p>
+								<hr>
+								<h6 class="card-title text-primary">Concepto</h6>
+								<p>{{ $engagement->concept }}</p>
+								<hr>
+								<h6 class="card-title text-primary">Descripción</h6>
+								<p>{{ $engagement->description }}</p>
+								<hr>
+								<h6 class="card-title text-primary">Fecha estimada de término</h6>
 								<p class="card-text">
-									{{-- {{ $post->content }} --}}
+									{{ $engagement->estimated_completion_date }}
 								</p>
+								<hr>
 							</div>
 							<div class="card-footer">
 								<a href="#0" class="card-link" onclick="like(this)"><i class="nc-icon nc-alert-circle-i"></i> Detalles</a>
@@ -44,7 +54,7 @@
 								<a href="#" class="card-link"><i class="nc-icon nc-simple-remove"></i> Cancelar contratación</a>
 							</div>
 						</div>
-						{{-- @endforeach --}}
+						@endforeach
 					</div>
 					<div class="col-md-4">
 						<div class="card gedf-card">

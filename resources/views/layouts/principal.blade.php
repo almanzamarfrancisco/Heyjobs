@@ -33,6 +33,10 @@ Coded by www.creative-tim.com
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link href="{{ asset('/css/demo.css') }}" rel="stylesheet" />
 	<link href="{{ asset('/css/awesomplete.css') }}" rel="stylesheet" />
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
 	<style>
 		.awesomplete{
 			width: 80%;
@@ -91,8 +95,8 @@ Coded by www.creative-tim.com
 								<span class="navbar-toggler-bar bar3"></span>
 							</button>
 						</div>
-						{{-- <a class="navbar-brand" href="javascript:;">@yield('title')</a> --}}
-						{{auth()->user()->name}}
+						<a class="navbar-brand text-primary rounded-lg border p-2" href="javascript:;">{{auth()->user()->name ?? auth('provider')->user()->name}}</a>
+						<a class="navbar-brand" href="javascript:;">@yield('title')</a>
 					</div>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-bar navbar-kebab"></span>
@@ -103,15 +107,24 @@ Coded by www.creative-tim.com
 						<ul class="navbar-nav">
 							<li class="nav-item btn-rotate dropdown">
 								<a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<i class="nc-icon nc-bell-55"></i>
+									<i class="nc-icon nc-bell-55 @if ($requested_engagements ?? false) animate__animated animate__bounce animate__repeat-3 @endif"></i>
 									<p>
-										<span class="d-lg-none d-md-block">Some Actions</span>
+										<span class="d-lg-none d-md-block text-primary">Notifications</span>
 									</p>
 								</a>
 								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-									<a class="dropdown-item" href="#">Action</a>
-									<a class="dropdown-item" href="#">Another action</a>
-									<a class="dropdown-item" href="#">Something else here</a>
+									@if(auth()->user()->getTable() === 'providers')
+									@foreach ($requested_engagements as $requested_engagement)
+										<a class="dropdown-item bg-success" href="{{ route('engagements_dashboard') . "?engagement_id=$requested_engagement->id" }}">
+											Nueva solicitud de: {{$requested_engagement->user->name}}
+										</a>
+									@endforeach
+									@if (!$requested_engagements->count())<a class="dropdown-item" href="#">No hay novedades por ahora</a>@endif
+									@else
+									<a class="dropdown-item" href="#">No hay novedades por ahora</a>
+									@endif
+									{{-- <a class="dropdown-item" href="#">Another action</a>
+									<a class="dropdown-item" href="#">Something else here</a> --}}
 								</div>
 							</li>
 							<li class="nav-item btn-rotate">
