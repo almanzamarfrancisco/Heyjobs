@@ -37,6 +37,20 @@ class UsersTableSeeder extends Seeder
         $user->password = bcrypt('12341234');
         $users[] = $user;
 
+        $user->name = 'Andree Giovanni Silva Villegas';
+        $user->email = 'andree.villegas.escom@gmail.com';
+        $user->rfc = 'VECJ990326456';
+        $user->payment_method = 'cash';
+        $user->password = bcrypt('12341234');
+        $users[] = $user;
+
+        $user->name = 'José Eduardo Díaz Morales';
+        $user->email = 'josehalo117jose57@gmail.com';
+        $user->rfc = 'RFCJ990326456';
+        $user->payment_method = 'cash';
+        $user->password = bcrypt('12341234');
+        $users[] = $user;
+
 		
 		foreach ($users as $user) {
 			$user->save();

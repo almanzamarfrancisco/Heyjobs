@@ -86,6 +86,42 @@ class ProvidersTableSeeder extends Seeder
         $provider->password = bcrypt('12341234');
         $providers[] = $provider;
 
+        $provider = new Provider;
+        $provider->name = 'Raúl Ramírez';
+        $provider->email = 'ramirez.raul@gmail.com';
+        $provider->rfc = 'RFCB980326DEF';
+        $provider->working_schedule = json_decode('{"SU":{"start":"-","end":"-","slug":"Domingo"},"MO":{"start":"09:00","end":"18:00","slug":"Lunes"},"TU":{"start":"09:00","end":"18:00","slug":"Martes"},"WE":{"start":"09:00","end":"18:00","slug":"Miércoles"},"TH":{"start":"09:00","end":"18:00","slug":"Jueves"},"FR":{"start":"09:00","end":"18:00","slug":"Viernes"},"SA":{"start":"09:00","end":"18:00","slug":"Sábado"},"Emergency":"Yes"}');
+        $provider->professional = 1;
+        $provider->mobility = 1;
+        $provider->home_service = 0;
+        $provider->intro = 'Soy profesional con más de 10 años en el campo labral. Mi área de trabajo es el derecho civil';
+        $provider->password = bcrypt('12341234');
+        $providers[] = $provider;
+
+        $provider = new Provider;
+        $provider->name = 'Alejandro Cazas';
+        $provider->email = 'cazaz.alejandroo@gmail.com';
+        $provider->rfc = 'RFCB980326GHI';
+        $provider->working_schedule = json_decode('{"SU":{"start":"-","end":"-","slug":"Domingo"},"MO":{"start":"09:00","end":"18:00","slug":"Lunes"},"TU":{"start":"09:00","end":"18:00","slug":"Martes"},"WE":{"start":"09:00","end":"18:00","slug":"Miércoles"},"TH":{"start":"09:00","end":"18:00","slug":"Jueves"},"FR":{"start":"09:00","end":"18:00","slug":"Viernes"},"SA":{"start":"09:00","end":"18:00","slug":"Sábado"},"Emergency":"Yes"}');
+        $provider->professional = 0;
+        $provider->mobility = 1;
+        $provider->home_service = 0;
+        $provider->intro = 'Hago todo tipo trabajos de construcción desde levantamiento hasta terminados. Contáctame';
+        $provider->password = bcrypt('12341234');
+        $providers[] = $provider;
+
+        $provider = new Provider;
+        $provider->name = 'Astrid Gonzáles';
+        $provider->email = 'disenadoraastridg@gmail.com';
+        $provider->rfc = 'RFCB980326JKL';
+        $provider->working_schedule = json_decode('{"SU":{"start":"-","end":"-","slug":"Domingo"},"MO":{"start":"09:00","end":"18:00","slug":"Lunes"},"TU":{"start":"09:00","end":"18:00","slug":"Martes"},"WE":{"start":"09:00","end":"18:00","slug":"Miércoles"},"TH":{"start":"09:00","end":"18:00","slug":"Jueves"},"FR":{"start":"09:00","end":"18:00","slug":"Viernes"},"SA":{"start":"09:00","end":"18:00","slug":"Sábado"},"Emergency":"Yes"}');
+        $provider->professional = 1;
+        $provider->mobility = 1;
+        $provider->home_service = 0;
+        $provider->intro = 'Hago todo tipo trabajos de construcción desde levantamiento hasta terminados. Contáctame';
+        $provider->password = bcrypt('12341234');
+        $providers[] = $provider;
+
 		foreach ($providers as $provider) {
 			$provider->save();
 		}

@@ -63,8 +63,8 @@ Coded by www.creative-tim.com
 			    </a>
 			    <a href="{{route('home')}}" class="simple-text logo-normal">
 			    	{{-- Your Logo --}}
-			    	<div class="logo-image-big">
-			    		<img src="{{ asset('/img/heyjobs.jpg') }}">
+			    	<div class="logo-image-big" style="width: 55%">
+			    		<img src="{{ asset('/img/HeyJobsCorto.png') }}">
 			    	</div>
 			    </a>
 			</div>
