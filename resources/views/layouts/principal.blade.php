@@ -85,8 +85,8 @@ Coded by www.creative-tim.com
 		</div>
 		<div class="main-panel" style="height: 100vh;">
 			<!-- Navbar -->
-			<nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-				<div class="container-fluid">
+			<nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent" style="background-image: url('{{ asset('/img/material-design-4k-2048x1152.jpg') }}')">
+				<div class="container-fluid rounded-lg" style="background: #f4f3ef">
 					<div class="navbar-wrapper">
 						<div class="navbar-toggle">
 							<button type="button" class="navbar-toggler">
@@ -95,7 +95,9 @@ Coded by www.creative-tim.com
 								<span class="navbar-toggler-bar bar3"></span>
 							</button>
 						</div>
-						<a class="navbar-brand text-primary rounded-lg border p-2" href="javascript:;">{{auth()->user()->name ?? auth('provider')->user()->name}}</a>
+						<a class="navbar-brand text-primary rounded-lg border p-2" href="javascript:;">
+							{{auth()->user()->name ?? auth('provider')->user()->name}}
+						</a>
 						<a class="navbar-brand" href="javascript:;">@yield('title')</a>
 					</div>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -140,12 +142,12 @@ Coded by www.creative-tim.com
 				</div>
 			</nav>
 			<!-- End Navbar -->
-			<div class="content" style="background-color: #f4f3ef;">
+			<div class="content" style="background-color: #f4f3ef; background-image: url('{{ asset('/img/material-design-4k-2048x1152.jpg') }}');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
 				<div class="row">
 					<div class="col-md-12">
 						{{-- <h3 class="description">Your content here</h3> --}}
 						@if(auth()->user()->getTable() === 'users')
-						<div class="bg-white p-5 mb-3" style="border-radius: 1.7rem">
+						<div class="bg-white p-5 mb-3" style="border-radius: 1.7rem;background-color: #f8f9fa!important">
 							<h5 style="color: #343a40;font-weight: 300">Busca proveedores ...</h5>
 							<form method="post" action="{{ route('search_provider') }}" id="searchForm" onsubmit="return searchSubmit();">
 								@csrf

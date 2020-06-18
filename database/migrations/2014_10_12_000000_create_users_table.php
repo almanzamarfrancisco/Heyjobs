@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('rfc', 100)->nullable();
             $table->string('payment_method')->nullable();
             $table->string('password');
+            $table->string('image')->default('default-avatar.png');
             $table->rememberToken();
             $table->timestamps();
         });

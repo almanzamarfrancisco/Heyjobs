@@ -20,7 +20,7 @@
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="mr-2">
-											<img class="rounded-circle" width="45" src="{{ asset('/img/default-avatar.png') }}" alt="">
+											<img class="rounded-circle" width="45" src="{{ asset("/img/profileImages/{$provider->image}") }}" alt="">
 										</div>
 										<div class="ml-2">
 											<div class="h5 m-0"></div>
@@ -39,8 +39,12 @@
 								</p>
 							</div>
 							<div class="card-footer">
-								<a href="{{ route('show_provider') . "/?provider_id={$provider->id}" }}" class="card-link"><i class="nc-icon nc-alert-circle-i"></i> Detalles</a>
-								<a href="#0" class="card-link"><i class="nc-icon nc-chat-33"></i> Hubo un problema</a>
+								<div class="col-6">
+									<a href="{{ route('show_provider') . "/?provider_id={$provider->id}" }}" class="card-link"><i class="nc-icon nc-alert-circle-i"></i> Detalles</a>
+								</div>
+								<div class="col-6">
+									<a href="#0" class="card-link"><i class="nc-icon nc-chat-33"></i> Hubo un problema</a>
+								</div>
 								{{-- <a href="#" class="card-link"><i class="nc-icon nc-simple-remove"></i> Cancelar contratación</a> --}}
 							</div>
 						</div>

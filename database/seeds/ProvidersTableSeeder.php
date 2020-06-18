@@ -15,9 +15,10 @@ class ProvidersTableSeeder extends Seeder
         Provider::truncate();
         $providers = [];
 		$provider = new Provider;
-		$provider->name = 'Alguien';
-		$provider->email = 'alguien@mail.com';
+		$provider->name = 'Antonio Alfonso';
+		$provider->email = 'Alfonso@mail.com';
         $provider->rfc = 'VECJ880326XXX';
+        $provider->image = 'ayo-ogunseinde-2.jpg';
 		$provider->password = bcrypt('12341234');
         $provider->working_schedule = json_decode('{"SU":{"start":"-","end":"-","slug":"Domingo"},"MO":{"start":"09:00","end":"18:00","slug":"Lunes"},"TU":{"start":"09:00","end":"18:00","slug":"Martes"},"WE":{"start":"09:00","end":"18:00","slug":"Miércoles"},"TH":{"start":"09:00","end":"18:00","slug":"Jueves"},"FR":{"start":"09:00","end":"18:00","slug":"Viernes"},"SA":{"start":"09:00","end":"18:00","slug":"Sábado"},"Emergency":"Yes"}');
         $provider->professional = 0;
@@ -59,6 +60,7 @@ class ProvidersTableSeeder extends Seeder
         $provider->mobility = 1;
         $provider->home_service = 0;
         $provider->intro = 'Hola tengo una estética';
+        $provider->image = 'joe-gardner-2.jpg';
         $provider->password = bcrypt('12341234');
         $providers[] = $provider;
 
@@ -66,6 +68,7 @@ class ProvidersTableSeeder extends Seeder
         $provider->name = 'José Pacheco';
         $provider->email = 'Jose.Pacheco10@gmail.com';
         $provider->rfc = 'RFCB880326ABC';
+        $provider->image = 'erik-lucatero-1.jpg';
         $provider->working_schedule = json_decode('{"SU":{"start":"-","end":"-","slug":"Domingo"},"MO":{"start":"09:00","end":"18:00","slug":"Lunes"},"TU":{"start":"09:00","end":"18:00","slug":"Martes"},"WE":{"start":"09:00","end":"18:00","slug":"Miércoles"},"TH":{"start":"09:00","end":"18:00","slug":"Jueves"},"FR":{"start":"09:00","end":"18:00","slug":"Viernes"},"SA":{"start":"09:00","end":"18:00","slug":"Sábado"},"Emergency":"Yes"}');
         $provider->professional = 0;
         $provider->mobility = 1;

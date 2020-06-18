@@ -51,6 +51,10 @@
 							</div>
 							<div class="col-7 col-md-8">
 								<div class="numbers">
+									<img src="" alt="">
+									<div class="mr-2">
+										<img class="rounded-circle" width="45" src="{{ asset("/img/profileImages/{$engagement->user->image}") }}" alt="">
+									</div>
 									<p class="card-category">{{$engagement->user->name}}</p>
 									<p class="card-title" style = "text-transform:capitalize;font-size: 0.6em">
 										@lang("custom.engagemet_states.$engagement->state")
@@ -76,8 +80,19 @@
 	<div class="col-md-8 col-lg-8 col-sm-12">
 		<div class="card ">
 			<div class="card-header ">
-				<h5 class="card-title">Ticket de contrato</h5>
-				<p class="card-category">A continuación toda la información la solicitud</p>
+				<div class="row">
+					<div class="col-9">
+						<h5 class="card-title">Ticket de contrato</h5>
+						<p class="card-category">A continuación toda la información la solicitud</p>
+					</div>
+					<div class="col-3 text-center">
+						<div class="mr-2">
+							<img class="rounded-circle" width="45" src="{{ asset("/img/profileImages/{$engagement->user->image}") }}" alt="">
+						</div>
+						<p class="card-category">{{$engagement->user->name}}</p>
+					</div>
+					
+				</div>
 			</div>
 			@if(isset($engagement))
 			<div class="card-body ">
@@ -122,7 +137,7 @@
 					@csrf
 					<input name="engagement_id" type="hidden" value="{{$engagement->id}}"></input>
 					<h6 class="card-title text-primary">Solicitud</h6>
-					<textarea name="request" id="request" cols="30" rows="5" class="w-100" maxlength="200">
+					<textarea name="request" id="request" class="w-100" maxlength="200">
 						{{ $engagement->request }}
 					</textarea>
 					<hr>
@@ -130,7 +145,7 @@
 					<input name="concept" type="text" value="{{ $engagement->concept }}" class="w-100">
 					<hr>
 					<h6 class="card-title text-primary">Descripción</h6>
-					<textarea name="description" id="description" cols="30" rows="5" class="w-100" maxlength="200">
+					<textarea name="description" id="description" class="w-100" maxlength="200">
 						{{ $engagement->description }}
 					</textarea>
 					<hr>

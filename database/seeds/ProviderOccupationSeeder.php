@@ -17,7 +17,7 @@ class ProviderOccupationSeeder extends Seeder
         ProviderOccupation::truncate();
         $items = [];
         $item = new ProviderOccupation;
-		$item->provider_id = Provider::whereEmail('alguien@mail.com')->first()->id;
+		$item->provider_id = Provider::whereEmail('Alfonso@mail.com')->first()->id;
 		$item->occupation_id = Occupation::whereName('photographer')->first()->id;
 		$items[] = $item;
 

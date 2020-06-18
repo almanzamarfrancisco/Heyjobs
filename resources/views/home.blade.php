@@ -101,11 +101,15 @@
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="mr-2">
-											<img class="rounded-circle" width="45" src="{{ asset('/img/default-avatar.png') }}" alt="">
+											<img class="rounded-circle" width="45" src="{{ asset("/img/profileImages/{$post->provider->image}") }}" alt="">
 										</div>
 										<div class="ml-2">
 											<div class="h5 m-0"></div>
-											<div class="h7 text-muted">{{$post->provider->name}}</div>
+											<div class="h7 text-muted">
+												<a href="{{ route('show_provider') . "/?provider_id={$post->provider->id}" }}">
+													{{$post->provider->name}}
+												</a>
+											</div>
 										</div>
 									</div>
 								</div>

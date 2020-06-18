@@ -13,7 +13,7 @@
 				<div class="card-body">
 					<div class="author">
 						<a href="#">
-							<img class="avatar border-gray" src="{{ asset('/img/default-avatar.png') }}" alt="Profile Image">
+							<img class="avatar border-gray" src="{{ asset("/img/profileImages/{$provider->image}") }}" alt="Profile Image">
 							<h5 class="title">{{$provider->name}}</h5>
 						</a>
 						<h5 class=" text-primary">Email</h5>
@@ -29,10 +29,10 @@
 					<hr>
 					<div class="button-container">
 						<div class="row">
-							<div class="col-lg-6 col-md-6 col-6 ml-auto">
+							<div class="col-lg-6 col-md-6 col-6">
 								<h5>{{$provider->engagements->count()}}<br><small>Total de contratos</small></h5>
 							</div>
-							<div class="col-lg-6 mr-auto">
+							<div class="col-lg-6 col-md-6 col-6">
 								<h5>{{$provider->engagements->count()}}<br><small>Contratos con éxito</small></h5>
 							</div>
 						</div>

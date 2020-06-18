@@ -7,7 +7,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 </head>
-<body>
+<body style="background-repeat: no-repeat;background-position: 47%">
     <img src="{{ asset('/img/HeyJobsCorto.png') }}" alt="HeyJobs!" style="width: 10%;display: block; margin: auto;">
     <button class="button" onclick="window.location='{{ route('showProvidersLogin') }}'" style="display: block;margin: 2% auto;border: none;background-color: #1161ee;color: white;padding: 6px 3%;border-radius: 911px;">Haz click aquí para ingresar como proveedor</button>
 <div class="login-wrap" style="margin-top: 5vh">

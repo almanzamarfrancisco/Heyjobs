@@ -36,7 +36,11 @@ class UsersController extends Controller
     public function engagements()
     {
         // return Engagement::whereUserId(auth()->user()->id)->get();
-        return view('client_engagement', ["engagements" => Engagement::whereUserId(auth()->user()->id)->get(), "occupations" => Occupation::all()]);
+        return view('client_engagement', [
+            "engagements" => Engagement::whereUserId(auth()->user()->id)->get(),
+            "finished_engagements" => Engagement::whereUserId(auth()->user()->id)->whereState('done')->orWhere('State','cancelled')->get(),
+            "occupations" => Occupation::all()->reverse()
+        ]);
     }
     public function searchProvider(Request $request)
     {
@@ -60,12 +64,12 @@ class UsersController extends Controller
             'user_id'=> auth()->user()->id,
             'provider_id'=> $request->provider_id,
             'state'=> 'requested',
-            'request'=> '',
+            'request'=> $request->get('request'),
             'concept'=> '',
             'description'=> '',
         ]);
         if(!$engagement)
-            return back()->with(["provider" => Provider::find($request->provider_id), "occupations" => Occupation::all()]);
+            return back()->with(["provider" => Provider::find($request->provider_id), "occupations" => Occupation::all()->reverse()]);
         return view('contactyousoon');
     }
 }
